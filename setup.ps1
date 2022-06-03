@@ -20,3 +20,8 @@ else {
 winget install --id Microsoft.WindowsTerminal
 
 winget install --id Microsoft.PowerShell 
+
+winget install oh-my-posh
+
+Install-Module -Name PSReadLine
+
