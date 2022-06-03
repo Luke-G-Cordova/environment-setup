@@ -23,5 +23,25 @@ winget install --id Microsoft.PowerShell
 
 winget install oh-my-posh
 
-Install-Module -Name PSReadLine
+# Install-Module -Name PSReadLine
 
+# Install-Module -Name Terminal-Icons -Repository PSGallery
+
+$username = [System.Environment]::UserName
+rm -r C:\Users\$username\Documents\PowerShell
+Copy-Item -Path ".\PowerShell" -Destination "C:\Users\$username\Documents\PowerShell" -Recurse
+
+
+# echo "Install fonts"
+# cd CascadiaCode
+# $fonts = (New-Object -ComObject Shell.Application).Namespace(0x14)
+# foreach ($file in gci *.ttf)
+# {
+#     $fileName = $file.Name
+#     if (-not(Test-Path -Path "C:\Windows\fonts\$fileName" )) {
+#         echo $fileName
+#         dir $file | %{ $fonts.CopyHere($_.fullname) }
+#     }
+# }
+# cp *.ttf c:\windows\fonts\
+# cd ..
