@@ -47,3 +47,4 @@ foreach ($file in Get-ChildItem *.ttf){
 cd ..
 
 echo "----- Make sure you change your terminal fonts to CaskaydiaCove Nerd Font -----"
+echo "----- Make sure you change your vscode terminal fonts to CaskaydiaCove NF -----"
