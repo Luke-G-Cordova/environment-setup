@@ -1,0 +1,68 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type":"rprompt", 
+      "alignment":"right",
+      "segments":[
+        {
+          "type":"time",
+          "style": "plain",
+          "background":"transparent",
+          "foreground":"#ff8000",
+          "template":" {{ .CurrentDate | date .Format }} ",
+          "properties": {
+            "time_format": "15:04:05 Mon Jan 02"
+          }
+        },
+        {
+          "type":"wifi",
+          "style":"plain",
+          "foreground":"#ff8000",
+          "template":"{{ if gt .Signal 0}}直{{ .Signal }}%{{else}}睊{{end}}"
+        }
+      ] 
+    },
+    {
+      "type":"prompt",
+      "alignment":"left",
+      "segments":[
+        {
+          "type":"text",
+          "style":"plain",
+          "foreground":"#007fff",
+          "template": "{{ .PWD  }}"
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "#8700e8",
+          "foreground_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}#ffeb3b{{ end }}",
+            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#FFCC80{{ end }}",
+            "{{ if gt .Ahead 0 }}#B388FF{{ end }}",
+            "{{ if gt .Behind 0 }}#B388FB{{ end }}"
+          ],
+          "template": " {{ .HEAD }}{{ if gt .StashCount 0 }} *{{.StashCount}}{{end}}",
+          "properties": {
+            "fetch_status": true,
+            "fetch_stash_count": true
+          }
+        },
+        {
+          "type":"exit",
+          "style":"plain",
+          "foreground_templates":[ 
+            " {{ if le .Code 0 }}#31e200{{ else }}#e20000{{ end }}"
+          ],
+          "template": " {{ if le .Code 0 }}{{ else }}{{ end }} >",
+          "properties": {
+            "always_enabled": true
+          }
+        }
+      ] 
+    }
+  ],
+  "final_space": true,
+  "version": 2
+}
