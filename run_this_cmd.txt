@@ -5,11 +5,3 @@ powershell -executionpolicy ByPass -File .\setup.ps1
 powershell -executionpolicy ByPass -File .\unsetup.ps1
 
 
-
-,
-            {
-                "guid": "{4fb123f1-af88-5b5c-8953-d14a8def1978}",
-                "hidden": false,
-                "name": "PowerShell",
-                "source": "Windows.Terminal.PowershellCore"
-            }
