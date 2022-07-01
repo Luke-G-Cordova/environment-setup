@@ -6,6 +6,16 @@
       "alignment":"right",
       "segments":[
         {
+          "type":"text",
+          "style":"plain",
+          "foreground_templates": [
+            "{{ if eq .Env.SHELL_VI_MODE \"C\" }}#d79200{{else}}#c20000{{end}}"
+          ],
+          "background":"#000000",
+          "foreground":"#c20000",
+          "template":" {{ .Env.SHELL_VI_MODE }} "
+        },
+        {
           "type":"time",
           "style": "plain",
           "background":"transparent",
